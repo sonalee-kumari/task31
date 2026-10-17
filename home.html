@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FreshWash Laundry - Premium local laundry and dry cleaning service with same-day pickup and delivery.">
+  <title>FreshWash Laundry | Sparkling Clean Clothes Delivered Fast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-light: #38bdf8;
+      --primary-dark: #0369a1;
+      --accent: #06b6d4;
+      --bg-dark: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top right, #1e293b, #0f172a 60%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    /* Header & Navigation */
+    header {
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--primary-light), #67e8f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: #67e8f9;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.8rem;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      box-shadow: 0 8px 24px -6px rgba(2, 132, 199, 0.5);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -6px rgba(2, 132, 199, 0.7);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Features Section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-top: 4rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      color: #fff;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Live Status Banner */
+    .status-banner {
+      margin-top: 4rem;
+      background: linear-gradient(90deg, rgba(14, 165, 233, 0.1), rgba(99, 102, 241, 0.1));
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 14px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .status-info {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .status-indicator {
+      width: 12px;
+      height: 12px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #10b981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.3rem; }
+      .nav-container { flex-direction: column; gap: 1rem; }
+      .nav-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="/home" class="logo" id="nav-brand">
+        🫧 <span>FreshWash</span> Laundry
+      </a>
+      <ul class="nav-links">
+        <li><a href="/home" class="active" id="link-home">Home</a></li>
+        <li><a href="/about" id="link-about">About Us</a></li>
+        <li><a href="/contact" id="link-contact">Contact & Booking</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="hero">
+      <div class="hero-badge">✨ 100% Eco-Friendly Fabric Care</div>
+      <h1>Spotless Clothes, <br><span class="highlight">Effortless Living</span></h1>
+      <p>Professional wash & fold, delicate dry cleaning, and steam press delivered right to your doorstep within 24 hours.</p>
+      
+      <div class="cta-group">
+        <a href="/contact" class="btn btn-primary" id="btn-schedule">Schedule Free Pickup</a>
+        <a href="/about" class="btn btn-secondary" id="btn-explore">Learn Our Process</a>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="features-grid">
+      <div class="card" id="card-wash-fold">
+        <div class="card-icon">🧺</div>
+        <h3>Wash & Fold</h3>
+        <p>Sorted by color and fabric weight, washed with hypo-allergenic detergents, and crisply folded.</p>
+      </div>
+
+      <div class="card" id="card-dry-clean">
+        <div class="card-icon">👔</div>
+        <h3>Delicate Dry Cleaning</h3>
+        <p>Premium non-toxic solvent cleaning for suits, designer garments, woolens, and silk fabrics.</p>
+      </div>
+
+      <div class="card" id="card-steam-press">
+        <div class="card-icon">💨</div>
+        <h3>Steam Ironing</h3>
+        <p>Wrinkle-free steam finishing with industrial precision to keep your wardrobe interview-ready.</p>
+      </div>
+
+      <div class="card" id="card-delivery">
+        <div class="card-icon">⚡</div>
+        <h3>24h Express Turnaround</h3>
+        <p>Doorstep pickup and return delivery tracked in real-time with contactless confirmation.</p>
+      </div>
+    </section>
+
+    <!-- Status Banner -->
+    <section class="status-banner">
+      <div class="status-info">
+        <div class="status-indicator"></div>
+        <div>
+          <strong>Accepting Orders Today:</strong> Same-day pickup slots are open for your neighborhood!
+        </div>
+      </div>
+      <a href="/contact" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">Book Now</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 FreshWash Laundry Services. Built with native Node.js HTTP Server.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact FreshWash Laundry - Book a laundry pickup or ask our garment care specialists questions.">
+  <title>Contact & Booking | FreshWash Laundry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-light: #38bdf8;
+      --accent: #06b6d4;
+      --bg-dark: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top right, #1e293b, #0f172a 60%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    header {
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--primary-light), #67e8f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      width: 100%;
+    }
+
+    .contact-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 1rem auto 3rem;
+    }
+
+    .contact-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-header h1 span {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+    }
+
+    .form-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-group {
+      margin-bottom: 1.4rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #e2e8f0;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px -6px rgba(2, 132, 199, 0.5);
+      transition: all 0.25s ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -6px rgba(2, 132, 199, 0.7);
+    }
+
+    /* Info Sidebar */
+    .info-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 1.8rem;
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .info-item strong {
+      color: #f1f5f9;
+      display: block;
+    }
+
+    .notification-success {
+      display: none;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 850px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .nav-container { flex-direction: column; gap: 1rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="/home" class="logo" id="nav-brand">
+        🫧 <span>FreshWash</span> Laundry
+      </a>
+      <ul class="nav-links">
+        <li><a href="/home" id="link-home">Home</a></li>
+        <li><a href="/about" id="link-about">About Us</a></li>
+        <li><a href="/contact" class="active" id="link-contact">Contact & Booking</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="contact-header">
+      <h1>Schedule a Pickup or <span>Say Hello</span></h1>
+      <p>Have questions about specialized fabrics or need regular commercial service? We're here to assist you 7 days a week.</p>
+    </div>
+
+    <div class="contact-layout">
+      <!-- Booking Form -->
+      <div class="form-card">
+        <div id="booking-success" class="notification-success">
+          🎉 Pickup scheduled successfully! A confirmation SMS has been dispatched.
+        </div>
+
+        <form id="contact-form" onsubmit="event.preventDefault(); document.getElementById('booking-success').style.display = 'block'; this.reset();">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder="Sarah Johnson" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+1 (555) 019-2834" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="sarah@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="service">Requested Service</label>
+              <select id="service" required>
+                <option value="">Select a service...</option>
+                <option value="wash-fold">Standard Wash & Fold ($1.50/lb)</option>
+                <option value="dry-clean">Dry Cleaning & Garment Care</option>
+                <option value="steam-press">Steam Ironing Only</option>
+                <option value="bedding">Heavy Bedding & Comforters</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Pickup Street Address</label>
+            <input type="text" id="address" placeholder="124 Sparkle Way, Apt 4B" required>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Special Care Instructions / Stains</label>
+            <textarea id="notes" rows="4" placeholder="E.g., Delicate silk blouse, gentle cycle, no fabric softener on activewear..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit" id="btn-submit-booking">Confirm Pickup Request 🚀</button>
+        </form>
+      </div>
+
+      <!-- Info Sidebar -->
+      <aside class="info-sidebar">
+        <div class="info-card">
+          <h3>📍 Store Location</h3>
+          <div class="info-item">
+            <div>
+              <strong>Main Laundromat Hub</strong>
+              742 Clean Street, Suite 101<br>
+              Metroville, NY 10001
+            </div>
+          </div>
+          <div class="info-item">
+            <div>
+              <strong>Customer Support Phone</strong>
+              +1 (800) 555-WASH (9274)
+            </div>
+          </div>
+          <div class="info-item">
+            <div>
+              <strong>Direct Email</strong>
+              support@freshwashlaundry.com
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>⏰ Operating Hours</h3>
+          <div class="info-item">
+            <div>
+              <strong>Monday – Friday:</strong>
+              7:00 AM – 9:00 PM
+            </div>
+          </div>
+          <div class="info-item">
+            <div>
+              <strong>Saturday – Sunday:</strong>
+              8:00 AM – 7:00 PM
+            </div>
+          </div>
+          <div class="info-item">
+            <div>
+              <strong>Pickup & Drop-off Windows:</strong>
+              Morning (8 AM - 12 PM) | Evening (5 PM - 9 PM)
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 FreshWash Laundry Services. Built with native Node.js HTTP Server.</p>
+  </footer>
+
+</body>
+</html>

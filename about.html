@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About FreshWash Laundry - Learn about our sustainable cleaning technologies and master fabric caretakers.">
+  <title>About Us | FreshWash Laundry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-light: #38bdf8;
+      --accent: #06b6d4;
+      --bg-dark: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top right, #1e293b, #0f172a 60%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--primary-light), #67e8f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      width: 100%;
+    }
+
+    .about-header {
+      text-align: center;
+      max-width: 750px;
+      margin: 1rem auto 3.5rem;
+    }
+
+    .about-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .about-header h1 span {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-header p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+    }
+
+    /* Content Cards */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .story-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 2.5rem;
+    }
+
+    .story-card h2 {
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .story-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+    }
+
+    /* Stats Grid */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .stat-box {
+      background: rgba(14, 165, 233, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #38bdf8;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* CTA Section */
+    .about-cta {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 3rem 2rem;
+    }
+
+    .about-cta h3 {
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 0.8rem;
+    }
+
+    .about-cta p {
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.8rem;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      font-size: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      box-shadow: 0 8px 24px -6px rgba(2, 132, 199, 0.5);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -6px rgba(2, 132, 199, 0.7);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .nav-container { flex-direction: column; gap: 1rem; }
+      .about-header h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="/home" class="logo" id="nav-brand">
+        🫧 <span>FreshWash</span> Laundry
+      </a>
+      <ul class="nav-links">
+        <li><a href="/home" id="link-home">Home</a></li>
+        <li><a href="/about" class="active" id="link-about">About Us</a></li>
+        <li><a href="/contact" id="link-contact">Contact & Booking</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="about-header">
+      <h1>Caring for Clothes, <br><span>Protecting the Planet</span></h1>
+      <p>Founded in 2021, FreshWash combines high-tech fabric care with eco-conscious practices to bring you the freshest laundry experience in town.</p>
+    </div>
+
+    <!-- Story Grid -->
+    <div class="story-grid">
+      <div class="story-card" id="card-craft">
+        <h2>🌿 Eco-First Commitment</h2>
+        <p>Traditional dry cleaners rely on toxic PERC chemicals that damage fabrics and water tables. We exclusively utilize 100% biodegradable enzymatic detergents and purified ozone washing systems.</p>
+        <p>Our closed-loop water filtration recovers and recycles over 60% of rinse water, drastically cutting environmental footprints without compromising softness.</p>
+      </div>
+
+      <div class="story-card" id="card-tech">
+        <h2>🔬 Precision Fabric Care</h2>
+        <p>Every single garment undergoes multi-point inspection. We catalog fabric compositions, treat tough stains with customized temperature baths, and use gentle steam presses designed for silk, cashmere, and denim.</p>
+        <p>With individual batch processing, your garments never touch another customer's laundry, guaranteeing pristine hygiene every single wash.</p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-container">
+      <div class="stat-box">
+        <div class="stat-number">12,500+</div>
+        <div class="stat-label">Bags Delivered</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">4.9 / 5</div>
+        <div class="stat-label">Customer Rating</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">99.7%</div>
+        <div class="stat-label">On-Time Rate</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">0%</div>
+        <div class="stat-label">Toxic Solvents Used</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="about-cta">
+      <h3>Ready to experience hassle-free laundry?</h3>
+      <p>Get your dirty clothes picked up today and returned fresh, crisp, and ready to wear tomorrow.</p>
+      <a href="/contact" class="btn" id="btn-about-contact">Get in Touch with Us</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 FreshWash Laundry Services. Built with native Node.js HTTP Server.</p>
+  </footer>
+
+</body>
+</html>

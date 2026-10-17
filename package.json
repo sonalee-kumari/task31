@@ -1,0 +1,12 @@
+{
+  "name": "laundry-service-node-server",
+  "version": "1.0.0",
+  "description": "Vanilla Node.js HTTP server for a local laundry service without external frameworks",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["nodejs", "http", "fs", "routing", "beginner"],
+  "author": "Student Developer",
+  "license": "ISC"
+}
